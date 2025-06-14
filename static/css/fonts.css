@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url(../fonts/Evolventa/Evolventa-Regular.ttf);
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url(../fonts/Evolventa/Evolventa-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Evolventa-Bold';
+  src: url(../fonts/Evolventa/Evolventa-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url(../fonts/Evolventa/Evolventa-Bold.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'El-Messiri';
+  src: url(../fonts/Evolventa/Evolventa-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Czizh';
+  src: url(../fonts/Evolventa/Evolventa-Bold.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(../fonts/roboto/Roboto-ExtraLight.ttf);
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(../fonts/roboto/Roboto-Light.ttf);
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url(../fonts/roboto/Roboto-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url(../fonts/roboto/Roboto-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url(../fonts/roboto/Roboto-Bold.ttf);
+  font-weight: 700;
+}

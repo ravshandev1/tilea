@@ -1,0 +1,693 @@
+{% load static %}
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Воздушные купола (купольные стадионы)</title>
+    <link rel="stylesheet" href="{% static 'plugin/aos/aos.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    <link rel="stylesheet" href="{% static 'plugin/swiper/swiper-bundle.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'plugin/fancybox/fancybox.css' %}"/>
+    <script src="{% static 'plugin/gsap/gsap.min.js' %}"></script>
+    <script src="{% static 'plugin/gsap/ScrollTrigger.min.js' %}"></script>
+    <script src="{% static 'plugin/tailwind/tailwind.js' %}"></script>
+    <script src="{% static 'plugin/tailwind/tailwind.config.js' %}"></script>
+</head>
+<body>
+<div class="relative overflow-x-hidden bg-white wrapper">
+    <nav id="navbar" class="py-2  bg-black duration-500 fixed top-0 w-full z-50 ">
+        <div class="container flex items-center justify-between font-gilroy font-medium">
+            <div class="flex justify-center items-center gap-3 sm:gap-6">
+                <a href="{% url 'index' %}" class="h-[35px] w-[50px] lg:w-[110px] lg:h-[40px]">
+                    <img src="{% static 'image/logo-white.png' %}" alt="Logo"
+                         class="w-full h-full shrink-0 object-contain "
+                         id="logo">
+                    <!-- <img src="./project/image/tilea-logo-dark.svg" alt="Logo" class="w-full h-full shrink-0 object-contain text-white" id="logo-white"> -->
+                </a>
+                <a href="{% url 'index' %}" class="h-[35px] w-[50px] lg:w-[110px] lg:h-[40px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                         id="Layer_1" x="0px" y="0px" viewBox="0 0 137 30" enable-background="new 0 0 137 30"
+                         xml:space="preserve"
+                         class="w-full h-full">
+              <g>
+                <g>
+                  <g>
+                    <path fill="#FFFFFF" d="M18.337,8.053v21.474H8.694V8.053H0.422V0.474H26.61v7.579H18.337z"/>
+                  </g>
+                </g>
+                  <g>
+                  <g>
+                    <path fill="#FFFFFF" d="M30.878,29.526V0.421h9.643v29.105H30.878L30.878,29.526z"/>
+                  </g>
+                </g>
+                  <g>
+                  <g>
+                    <path fill="#FFFFFF" d="M68.342,21.526v8H46.58V0.421h9.643v21.105H68.342z"/>
+                  </g>
+                </g>
+                  <g>
+                  <g>
+                    <path fill="#FFFFFF"
+                          d="M81.673,7.737v3.579H93.95v7.316H81.673v3.632h15.386v7.316H72.03V0.474h24.66v7.316H81.673V7.737z"/>
+                  </g>
+                </g>
+                  <g>
+                  <g>
+                    <path fill="#FFFFFF"
+                          d="M110.812,0.421h9.643l12.225,29.105h-9.906l-7.114-16.632l-6.745,16.632H98.64L110.812,0.421z"/>
+                  </g>
+                </g>
+                  <g>
+                  <path fill="#FFFFFF"
+                        d="M132.31,0.474c-2.371,0-4.268,2-4.268,4.316s1.844,4.263,4.268,4.263c2.424,0,4.321-2,4.321-4.316    S134.787,0.474,132.31,0.474z M132.31,8c-1.844,0-3.214-1.421-3.214-3.211s1.423-3.263,3.267-3.263s3.267,1.421,3.267,3.211    C135.63,6.526,134.207,8,132.31,8z"/>
+                      <path fill="#FFFFFF"
+                            d="M134.154,4.053c0-0.895-0.632-1.421-1.686-1.421h-1.739v4h1.001V5.526h0.79l0.58,1.105h1.159l-0.843-1.316    C133.891,5.105,134.154,4.632,134.154,4.053z M132.521,4.684h-0.738V3.421h0.738c0.422,0,0.685,0.211,0.685,0.632    C133.206,4.421,132.942,4.684,132.521,4.684z"/>
+                </g>
+              </g>
+            </svg>
+                </a>
+            </div>
+            <div class="flex items-center gap-x-2 mr-2 sm:mr-0">
+                <a href="tel:{{ phones.first.phone }}"
+                   class="flex items-center text-sm gap-2.5 text-white  md:text-white rounded-xl px-2 py-1  lg:text-lg">
+                    <i class="ri-phone-line text-xl mt-0.5 block md:hidden"></i>
+                    <span class="hidden font-normal text-base md:block montserrat">{{ phones.first.phone }}</span>
+                </a>
+                <div class="relative">
+                    <div class="flex items-center gap-2 cursor-pointer lang-btn">
+                        <div>
+                            <a href="{% url 'set-language' 'ru' %}"><img class="w-7 h-7 object-cover rounded-full"
+                                                                         src="{% static 'image/russian.png' %}"
+                                                                         alt="Russian flag"></a>
+                        </div>
+                        <div>
+                            <a href="{% url 'set-language' 'uz' %}"><img class="w-7 h-7 object-cover rounded-full"
+                                                                         src="{% static 'image/uzbekistan.png' %}"
+                                                                         alt="Uzbekistan flag"></a>
+                        </div>
+
+
+                    </div>
+                    <!--                            <div class="absolute top-[60px] right-2  grid grid-rows-[0fr] lang-menu w-12 sm:w-16  gap-2 duration-200 z-[5]">-->
+                    <!--                                <div class="overflow-hidden ">-->
+                    <!--                                    <div class="py-1 px-1 md:px-3 bg-[#0058E9] rounded  text-base flex flex-col w-full border-[0.5px] border-white/40">-->
+                    <!--                                        <ul>-->
+                    <!--                                            <li class="flex items-center gap-1">-->
+                    <!--                                                <span class="w-4 h-3 shrink-0 rounded">-->
+                    <!--                                                    <img class="w-full h-full object-cover" src="./project/image/russian.png" alt="Russian flag">-->
+                    <!--                                                </span>-->
+                    <!--                                                <a href="#" class="text-white duration-200 text-sm md:text-lg">RU</a>-->
+                    <!--                                            </li>-->
+                    <!--                                            <li class="flex items-center gap-1">-->
+                    <!--                                                <span class="w-4 h-3 shrink-0 rounded">-->
+                    <!--                                                    <img class="w-full h-full object-cover" src="./project/image/uzbekistan.png" alt="Uzbekistan flag">-->
+                    <!--                                                </span>-->
+                    <!--                                                <a href="#" class="text-white duration-200 text-sm md:text-lg">UZ</a>-->
+                    <!--                                            </li>-->
+                    <!--                                        </ul>-->
+                    <!--                                    </div>-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                </div>
+            </div>
+        </div>
+        <!-- <div class="black-bg w-full h-screen hidden bg-black/50 absolute z-[25] top-0 left-0"></div> -->
+    </nav>
+    <!-- <nav
+        id="navbar"
+        class="absolute md:top-[10px] top-0 left-0 z-50 w-full mx-auto max-md:bg-light transition duration-700"
+      >
+        <div
+          id="navbar-container"
+          class="transition duration-700 rounded-none md:rounded-[60px] container nav--bg duration-400 py-2.5 px-5 flex items-center justify-between"
+        >
+          <a href="/" class="h-[50px] w-[80px] lg:w-[100px] lg:h-[62px] block">
+            <img
+              src="./project/image/logo%20(2).jpg"
+              alt="easYouform"
+              class="object-contain w-full h-full"
+            />
+          </a>
+          <div class="flex items-center gap-x-2">
+            <a
+              href="tel:+998 90 977 18 82"
+              class="flex items-center text-sm gap-2.5 text-white bg-[#0058E9] md:bg-transparent md:text-[#0058E9] rounded-xl md:text-[#0058E9] px-3 py-1.5 lg:text-lg"
+            >
+              <i class="ri-phone-line text-xl mt-0.5 block"></i>
+              <span class="hidden font-normal md:block montserrat"
+                >+998 90 977 18 82</span
+              >
+            </a>
+            <div class="relative">
+                        <div class="flex items-center gap-1 cursor-pointer lang-btn">
+                            <p class="text-[#0058E9] text-lg">RU</p>
+                            <i data-lucide="chevron-down"></i>
+                        </div>
+                            <div class="absolute top-7  grid grid-rows-[0fr] lang-menu w-14 duration-200 z-[5]">
+                                <div class="overflow-hidden ">
+                                    <div class="py-1 px-2 bg-[#0058E9] rounded  text-base flex flex-col w-full border-[0.5px] border-white/40">
+                                        <ul>
+                                            <li class="flex items-center gap-1">
+                                                <span class="w-4 h-3 shrink-0 rounded">
+                                                    <img class="w-full h-full object-cover" src="./project/image/russian.png" alt="Russian flag">
+                                                </span>
+                                                <a href="#" class="text-white duration-200 text-sm">RU</a>
+                                            </li>
+                                            <li class="flex items-center gap-1">
+                                                <span class="w-4 h-3 shrink-0 rounded">
+                                                    <img class="w-full h-full object-cover" src="./project/image/uzbekistan.png" alt="Uzbekistan flag">
+                                                </span>
+                                                <a href="#" class="text-white duration-200 text-sm">UZ</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+          </div>
+        </div>
+      </nav> -->
+    <header class="relative w-full h-screen text-white">
+        <video class="object-cover w-full h-full" preload="auto" autoplay muted playsinline>
+            <source src="{{ main.video.url }}" type="video/mp4"/>
+        </video>
+        <div class="absolute top-0 left-0 z-10 w-full h-screen bg-black/40">
+            <div class="container flex flex-col items-center justify-center h-full pb-[7%] gap-10 md:gap-0">
+                <h2 class="text-4xl text-center sm:text-5xl font-[Evolventa-Bold] leading-tight tracking-1"
+                    data-aos="fade-up">
+                    {{ main.title }}
+                </h2>
+                <!--            <h3-->
+                <!--              class="-mt-5 text-2xl font-normal sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-czizh"-->
+                <!--              data-aos="fade-up"-->
+                <!--              data-aos-delay="100"-->
+                <!--            >-->
+                <!--              Полный цикл работ от проектирования-->
+                <!--              до строительства и реновации спортивных полей!-->
+                <!--            </h3>-->
+                <!--            <a-->
+                <!--              href="#about"-->
+                <!--              class="flex flex-col items-center gap-3.5 absolute bottom-[10%] animate-bounce"-->
+                <!--            >-->
+                <!--              <span-->
+                <!--                class="hidden text-sm font-normal font-montserrat md:text-xl md:block"-->
+                <!--              >-->
+                <!--                Прокрутить-->
+                <!--              </span>-->
+                <!--              <img src="./project/image/arrow-down.svg" alt="" />-->
+                <!--            </a>-->
+            </div>
+        </div>
+
+        <!--  font-montserrat font-light text-dark text-sm sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl   -->
+    </header>
+    <main>
+        <section id="mySlider" class="splide md:py-14 sm:py-10 py-7" aria-label="Splide Basic HTML Example">
+            <div class="splide__track">
+                <ul class="text-sm font-light splide__list font-montserrat text-dark sm:text-xl md:text-2xl lg:text-3xl whitespace-nowrap">
+                    {% for i in carousels %}
+                        <li class="flex items-center gap-10 splide__slide">
+                            <p class="text-sm md:text-base lg:text-lg text-[#666666]">{{ i.name }}</p>
+                            <!-- <svg
+                              class="shrink-0 w-[37px] h-10"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="40"
+                              height="43"
+                              viewBox="0 0 40 43"
+                              fill="none"
+                            >
+                              <path
+                                d="M20 37.625L16.8333 27.2333C16.6712 26.6937 16.3922 26.2031 16.0193 25.8019C15.6464 25.4007 15.1902 25.1004 14.6883 24.9257L5 21.5L14.6667 18.0958C15.1687 17.9215 15.6251 17.6216 15.9983 17.2207C16.3714 16.8199 16.6508 16.3295 16.8133 15.79L20 5.375L23.1667 15.7667C23.3288 16.3063 23.6078 16.7969 23.9807 17.1981C24.3536 17.5993 24.8098 17.8996 25.3117 18.0743L35 21.5L25.3333 24.9042C24.8313 25.0785 24.3749 25.3784 24.0017 25.7793C23.6286 26.1801 23.3492 26.6705 23.1867 27.21L20 37.625Z"
+                                stroke="#363435"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg> -->
+                            <div class="w-12 h-12">
+                                <img class="w-full h-full" src="/project/image/icon-ihriska.svg" alt="football-icon">
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+        <section class="py-10 md:py-[50px]">
+            <div class="container">
+                <div class=" duration-500 ">
+                    <!--            <div class="xl:col-span-2 max-md:order-2">-->
+                    <!--              <div-->
+                    <!--                class="w-full aspect-square md:h-[350px] xl:h-[450px] rounded-[60px] md:rounded-[120px]"-->
+                    <!--                data-aos="fade-right"-->
+                    <!--              >-->
+                    <!--                <img-->
+                    <!--                  src="./project/image/about (2).jpg"-->
+                    <!--                  alt="about-us"-->
+                    <!--                  class="object-fill w-full h-full rounded-[30px]"-->
+                    <!--                />-->
+                    <!--              </div>-->
+                    <!--            </div>-->
+                    <div class="flex flex-col justify-center  max-md:order-1 max-md:items-center">
+                        <h3 class="pb-3  text-2xl font-normal text-center lg:mb-4 md:text-3xl  font-czizh text-[#666666]"
+                            data-aos="fade-left" data-aos-delay="40">
+                            {{ about.title }}
+                        </h3>
+                        <p class="text-base md:text-lg text-dark text-center font-montserrat text-[#666666] font-light pb-[30px]"
+                           data-aos="fade-left" data-aos-delay="50">
+                            {{ about.text }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-10 md:py-[50px] ">
+            <div class="container flex flex-col items-center space-y-[20px] md:space-y-[30px]">
+                <div class="text-center">
+                    <h3 data-aos="fade-right"
+                        class="mb-2 text-2xl font-normal lg:mb-4 md:text-3xl  font-czizh text-[#666666]">
+                        {% trans 'Наша продукция' %}
+                    </h3>
+                    <!-- <p
+                      data-aos="fade-right"
+                      data-aos-delay="100"
+                      class="text-sm font-light font-montserrat-alternates-light sm:text-base lg:text-lg font-montserrat"
+                    >
+                      Наша философия заключается в создании одежды, которая не только
+                      подчеркивает ваш индивидуальный стиль, но также обеспечивает
+                      удобство и уверенность в любой ситуации.
+                    </p> -->
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 md:gap-3 w-full mb-6 md:mb-10 xl:mb-[50px]">
+                    {% for i in products %}
+                        <a href="{% url 'product-inner' i.id %}" data-aos="zoom-in" data-aos-delay="10"
+                           class="group block col-span-1 rounded-[20px] relative overflow-hidden text-light w-full h-[250px] md:h-[350px] lg:h-[380px]">
+                            <img src="{{ i.images.first.image.url }}" alt=""
+                                 class="object-cover w-full h-full duration-500 group-hover:scale-125  group-hover:brightness-50"/>
+                            <div
+                                    class="absolute top-0 left-0 flex flex-col justify-end w-full h-full p-1 duration-500 opacity-100 rounded-b-3xl lg:p-2">
+                                <div
+                                        class="p-1 overflow-hidden md:p-2 rounded-xl product-card flex flex-col items-start !justify-center">
+                                    <h4 class="font-montserrat font-medium mb-2.5 text-sm md:text-lg xs:h-[30px] sm:h-[50px] md:h-[80px]">
+                                        {{ i.name }}
+                                    </h4>
+                                    <button
+                                            class="absolute items-center gap-2 transition duration-700 opacity-0 -bottom-10 group-hover:flex group-hover:relative group-hover:opacity-100 group-hover:bottom-0">
+                                        <span class="text-xs font-normal md:text-sm font-montserrat">{% trans 'Подробнее' %}</span>
+                                        <img src="{% static 'image/arrow-left.svg' %}" alt=""
+                                             class="hidden h-5 md:block w-7"/>
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <section class="py-10 md:py-[50px] ">
+            <div class="container flex flex-col items-center">
+                <h2 class="mb-5 text-2xl font-normal text-center md:text-3xl  md:mb-8 font-czizh text-[#666666]"
+                    data-aos="fade-up">
+                    {% trans 'Наши особенности' %}:
+                </h2>
+                <div class="grid grid-cols-1 gap-3 md:gap-5 sm:grid-cols-2 md:grid-cols-3 ">
+                    {% for i in features %}
+                        <div
+                                class="relative px-6 pt-6 pb-4 my-4 transition-all bg-white border border-transparent shadow-lg cursor-pointer hover:shadow-xl rounded-3xl  hover:border-[#2D2D2D] duration-400 translate">
+                            <div
+                                    class="absolute flex items-center px-4 py-4 text-white rounded-full shadow-xl bg-[#2D2D2D] left-4 -top-6">
+                                <img src="{{ i.image.url }}" class="w-8 h-8 object-contain " alt="">
+                            </div>
+                            <div class="mt-8 space-y-2">
+                                <h4 class="text-lg md:text-xl text-[#2D2D2D] font-[Evolventa-Bold]">{{ i.name }}</h4>
+                                <p class="text-sm">
+                                    {{ i.description }}
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <section class="py-10 md:py-[50px] counter">
+            <div class="container">
+                <h2 class="text-2xl font-normal text-center md:text-3xl  mb-8 pb-8 xs:pb-4 sm:pb-0 font-czizh text-[#666666]"
+                    data-aos="fade-up">
+                    {% trans 'Наши статистика' %}
+                </h2>
+                <div class="relative  text-center font-montserrat">
+                    <!-- Background TILEA text -->
+                    <h1
+                            class=" text-[150px] xs:text-[200px] sm:text-[250px] lg:text-[300px] font-bold text-gray-200 opacity-30 select-none pointer-events-none leading-none m-0">
+                        TILEA
+                    </h1>
+
+                    <!-- Stats -->
+                    <div
+                            class="absolute w-full bottom-0 md:bottom-10 z-10 grid grid-cols-2 lg:grid-cols-4 items-center gap-2 lg:gap-10">
+                        <!-- Item -->
+                        <div>
+                            <p class="text-[40px] md:text-[50px] lg:text-[70px] font-bold text-red-700 number-container-1 flex items-center justify-center">
+                                {% with clients_str=main.year_of_traditions|stringformat:"d" %}
+                                    {% for digit in clients_str %}
+                                        <span class="year">{{ digit }}</span>
+                                    {% endfor %}
+                                {% endwith %}
+                            </p>
+                            <p class="text-black text-lg">{% trans 'лет традиции' %}</p>
+                        </div>
+                        <div>
+                            <p class="text-[40px] md:text-[50px] lg:text-[70px] font-bold text-red-700 number-container-2 flex items-center justify-center">
+                                <span class="country">+</span>
+                                {% with clients_str=main.countries|stringformat:"d" %}
+                                    {% for digit in clients_str %}
+                                        <span class="country">{{ digit }}</span>
+                                    {% endfor %}
+                                {% endwith %}
+                            </p>
+                            <p class="text-black text-lg">{% trans 'страны' %}</p>
+                        </div>
+                        <div>
+                            <p class="text-[40px] md:text-[50px] lg:text-[70px] font-bold text-red-700 number-container-3 flex items-center justify-center">
+                                <span class="project">+</span>
+                                {% with clients_str=main.projects|stringformat:"d" %}
+                                    {% for digit in clients_str %}
+                                        <span class="project">{{ digit }}</span>
+                                    {% endfor %}
+                                {% endwith %}
+                            </p>
+                            <p class="text-black text-lg">{% trans 'проекты' %}</p>
+                        </div>
+                        <div>
+                            <p class="text-[40px] md:text-[50px] lg:text-[70px] font-bold text-red-700 number-container-4 flex items-center justify-center">
+                                <span class="client">+</span>
+                                {% with clients_str=main.clients|stringformat:"d" %}
+                                    {% for digit in clients_str %}
+                                        <span class="client">{{ digit }}</span>
+                                    {% endfor %}
+                                {% endwith %}
+                            </p>
+                            <p class="text-black text-lg">{% trans 'клиенты' %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <section class="py-10 md:py-[50px]">
+            <div class="container">
+                <h2 class="mb-5 text-2xl font-normal text-center md:text-3xl  md:mb-8 font-czizh text-[#666666]"
+                    data-aos="fade-up">{% trans 'Почему стоит выбрать купола TILEA' %}?</h2>
+                <div class="grid sm:grid-cols-2 gap-5 md:gap-10 font-roboto">
+                    {% for i in whys %}
+                        <div class="bg-white  p-6 ">
+                            <img src="{{ i.image.url }}" class="w-auto h-20 object-contain mb-2 sm:mb-4"
+                                 alt="high-corners">
+                            <h3 class="text-lg font-medium  text-[#1E2E42] mb-4 sm:mb-6">{{ i.name }}</h3>
+                            <p class=" text-[#636C7D] leading-6">{{ i.description }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <section class="py-10 md:py-[50px] mt-5">
+            <div class="container flex flex-col gap-2 md:gap-10 justify-center items-center">
+                <h3 class="text-2xl font-normal text-center md:text-3xl text-[#666] font-czizh"
+                    data-aos="fade-up">{% trans 'Выбранные проекты' %}</h3>
+
+                {% for i in projects %}
+                    <div class="flex flex-col gap-3">
+                        <div class="w-full flex justify-between items-center font-semibold text-base sm:text-lg md:text-2xl">
+                            <div class="flex gap-2 items-center">
+                                <h3>{{ i.name }}</h3>
+                            </div>
+                            <div class="flex gap-2 items-center">
+                                <h3>{{ i.country }}</h3>
+                            </div>
+                        </div>
+                        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-2 pb-3 border-b border-red-300">
+                            <div class="md:w-2/3 flex flex-col justify-between gap-2 md:gap-3 ">
+                                <p class="font-montserrat text-sm sm:text-base md:text-lg">
+                                    {{ i.description }}
+                                </p>
+                                <p class="font-montserrat text-sm sm:text-base md:text-lg">
+                                    <span class="font-semibold">{% trans 'Адрес' %}:</span>{{ i.address }}
+                                </p>
+                                <a href="{{ i.link }}"
+                                   class="font-montserrat text-sm sm:text-base md:text-lg text-red-700">{{ i.link }}</a>
+                            </div>
+                            <div class="w-full h-full">
+                                <img src="{{ i.image.url }}" alt="" class="object-cover aspect-video">
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="py-10 md:py-[50px]  relative">
+            <div class="container">
+                <div class="flex flex-col items-center gap-y-4">
+                    <h3 class="text-2xl font-normal text-center md:text-3xl text-[#666] font-czizh" data-aos="fade-up">
+                        {% trans 'Фотогалерея' %}
+                    </h3>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2  mt-[20px] md:mt-[30px] font-czizh">
+                {% for i in galleries %}
+                    <a href="{{ i.image.url }}" data-fancybox="gallery" class="overflow-hidden"
+                       data-caption='<div class="flex flex-col gap-1 items-center text-xs sm:text-sm leading-snug"><h3 class="font-semibold">{{ i.name }}</h3><p><span class="font-semibold">Address:</span>{{ i.address }}</p></div>'>
+                        <img src="{{ i.image.url }}" alt="Gallery Image 1"
+                             class="object-cover w-full h-[200px] md:h-[250px] lg:h-[300px] transition-transform duration-300 hover:scale-105">
+                    </a>
+                {% endfor %}
+            </div>
+        </section>
+        <section class="py-10 md:py-[50px] ">
+            <div class="container flex flex-col items-center">
+                <h2 class="mb-5 text-2xl font-normal text-center  md:text-3xl text-[#666666] md:mb-8 font-czizh"
+                    data-aos="zoom-up">
+                    {% trans 'Наши крупнейшие клиенты' %}
+                </h2>
+                <div class="w-full">
+                    <div class="swiper aboutSwiper">
+                        <div class="swiper-wrapper" data-aos="zoom-in" data-aos-delay="100">
+                            {% for i in clients %}
+                                <a href="#" class="swiper-slide"><img src="{{ i.image.url }}" alt="1-partner"
+                                                                      class="w-full h-[70px] object-contain"/></a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="py-4 bg-black mt-5">
+            <div class="container">
+                <div
+                        class=" flex flex-col xs:flex-row  justify-between gap-5   text-[#FFFFFF90] font-montserrat-alternates xs:gap-10">
+                    <div class="max-xs:text-center">
+                        <div class="pb-[10px]">
+                            <p class="text-lg pb-[10px] font-montserrat font-normal">{% trans 'Наш адрес' %}:</p>
+                            <span class="block text-sm font-montserrat font-thin">{{ main.address }}</span>
+                        </div>
+                        <div class="flex gap-5 w-fit max-xs:mx-auto">
+                            <a href="{{ main.facebook_link }}" target="_blank"
+                               class="flex items-center justify-center w-5 h-5 text-2xl text-[#FFFFFF90] py-4 px-4 bg-[#4A4A4A] rounded-full">
+                                <i class="ri-facebook-fill text-xl"></i>
+                            </a>
+                            <a href="{{ main.telegram_link }}" target="_blank"
+                               class="flex items-center justify-center w-5 h-5 fill-[#FFFFFF90] py-4 px-4 bg-[#4A4A4A] rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
+                                     fill="none"
+                                     class="w-[30px] h-[30px] flex-shrink-0">
+                                    <path
+                                            d="M28 12.6022L24.9946 28.2923C24.9946 28.2923 24.5741 29.3801 23.4189 28.8584L16.4846 23.3526L16.4524 23.3364C17.3891 22.4654 24.6524 15.7027 24.9698 15.3961C25.4613 14.9214 25.1562 14.6387 24.5856 14.9974L13.8568 22.053L9.71764 20.6108C9.71764 20.6108 9.06626 20.3708 9.00359 19.8491C8.9401 19.3265 9.73908 19.0439 9.73908 19.0439L26.6131 12.1889C26.6131 12.1889 28 11.5579 28 12.6022Z"
+                                            fill="#FFFFFF90"/>
+                                </svg>
+                            </a>
+                            <a href="{{ main.youtube_link }}" target="_blank"
+                               class="flex items-center justify-center w-5 h-5 text-[#FFFFFF90] py-4 px-4 bg-[#4A4A4A] rounded-full">
+                                <i class="ri-youtube-fill text-xl"></i>
+                            </a>
+                            <a href="{{ main.whatsapp_link }}" target="_blank"
+                               class="flex items-center justify-center w-5 h-5 text-[#FFFFFF90] py-4 px-4 bg-[#4A4A4A] rounded-full">
+                                <i class="ri-whatsapp-fill text-xl"></i>
+                            </a>
+                            <a href="{{ main.instagram_link }}" target="_blank"
+                               class="flex items-center justify-center w-5 h-5 text-[#FFFFFF90] py-4 px-4 bg-[#4A4A4A] rounded-full">
+                                <i class="ri-instagram-line text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-1 items-center">
+                        <p class="text-lg pb-[10px] font-montserrat font-normal">
+                            <span class="">{% trans 'Наш контакт' %}:</span>
+                        </p>
+                        <div class="flex flex-row xs:flex-col gap-2.5 xs:gap-1 items-center justify-center">
+                            {% for i in phones %}
+                                <a href="tel:{{ i.phone }}"
+                                   class="block text-sm font-montserrat font-thin">{{ i.phone }}</a>
+                            {% endfor %}
+                        </div>
+                        <a href="mailto:{{ main.email }}" class="block text-sm font-thin font-montserrat">
+                            {{ main.email }}</a>
+                    </div>
+                </div>
+                <div
+                        class="flex flex-col xs:flex-row items-center justify-between col-span-2 border-t mt-5 py-2 border-t-[#2E2E2E]">
+                    <p class="text-[#767676] tex-center text-[13px] h-full">
+                        ©2025 . {% trans 'Все права защищены' %}.
+                    </p>
+                    <div class="flex items-center gap-[9px] w-fit mx-auto md:mx-0 font-montserrat font-normal">
+                        <p class="text-[#FFFFFF90] opacity-70 text-[13px]">{% trans 'Сайт создан' %}</p>
+                        <a href="https://abduganiev.uz" target="_blank" class="w-6 h-6">
+                            <img class="object-contain w-full h-full" src="{% static 'image/abduganiev.png' %}"
+                                 alt="abduganiev technology"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+</div>
+<script src="{% static 'plugin/fancybox/fancybox.umd.js' %}"></script>
+<script src="{% static 'plugin/splide/splide.min.js' %}"></script>
+<script src="{% static 'plugin/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'plugin/purecounter/purecounter_vanilla.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+<script src="{% static 'plugin/aos/aos.js' %}"></script>
+<script>
+    AOS.init();
+</script>
+<script>
+    Fancybox.bind('[data-fancybox="gallery"]', {
+        // optional: siz bu yerda options yozishingiz mumkin
+    });
+</script>
+<script>
+    document.addEventListener("touchstart", function () {
+        var video = document.querySelector('video');
+        if (video && video.paused) {
+            video.play();
+        }
+    });
+</script>
+<script>
+
+    const mySlider = new Splide('#mySlider', {
+        perMove: 3,
+        perPage: 3,
+        gap: '40px',
+        arrows: false,
+        type: 'loop',
+        autoplay: true,
+        interval: 0,
+        speed: 200000,
+        // focus    : 'center',
+        autoWidth: true,
+    })
+
+    mySlider.mount()
+
+
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1.3,
+        spaceBetween: 40,
+        centeredSlides: true,
+        loop: true,
+        breakpoints: {
+            1280: {
+                spaceBetween: 100,
+            }
+        },
+        autoplay: {
+            delay: 5000, // Set the delay in milliseconds (e.g., 5000 for 5 seconds)
+            disableOnInteraction: false, // Allow navigation while autoplay is active
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to(".year", {
+        scrollTrigger: {
+            trigger: ".number-container-1",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        y: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        duration: 0.4,
+        stagger: {
+            each: 0.2,
+            from: "start"
+        },
+        ease: "expo.out"
+    });
+
+    gsap.to(".country", {
+        scrollTrigger: {
+            trigger: ".number-container-2",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        y: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        duration: 0.4,
+        stagger: {
+            each: 0.2,
+            from: "start"
+        },
+        ease: "expo.out"
+    });
+
+    gsap.to(".project", {
+        scrollTrigger: {
+            trigger: ".number-container-3",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        y: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        duration: 0.4,
+        stagger: {
+            each: 0.2,
+            from: "start"
+        },
+        ease: "expo.out"
+    });
+
+    gsap.to(".client", {
+        scrollTrigger: {
+            trigger: ".number-container-4",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        y: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        duration: 0.4,
+        stagger: {
+            each: 0.2,
+            from: "start"
+        },
+        ease: "expo.out"
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-12 18:23+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+#: templates/index.html:269
+msgid "Наша продукция"
+msgstr "Mahsulotlarimiz"
+
+#: templates/index.html:296
+msgid "Подробнее"
+msgstr "Batafsil"
+
+#: templates/index.html:311
+msgid "Наши особенности"
+msgstr "Bizning xususiyatlarimiz"
+
+#: templates/index.html:337
+msgid "Наши статистика"
+msgstr "Bizning statistika"
+
+#: templates/index.html:356
+msgid "лет традиции"
+msgstr "an'analar yillari"
+
+#: templates/index.html:365
+msgid "страны"
+msgstr "mamlakatlar"
+
+#: templates/index.html:374
+msgid "проекты"
+msgstr "loyihalar"
+
+#: templates/index.html:383
+msgid "клиенты"
+msgstr "mijozlar"
+
+#: templates/index.html:393
+msgid "Почему стоит выбрать купола TILEA"
+msgstr "Nima uchun TILEA gumbazlarini tanlash kerak"
+
+#: templates/index.html:410
+msgid "Выбранные проекты"
+msgstr "Tanlangan loyihalar"
+
+#: templates/index.html:428
+msgid "Адрес"
+msgstr "Manzil"
+
+#: templates/index.html:446
+msgid "Фотогалерея"
+msgstr "Fotogalereya"
+
+#: templates/index.html:464
+msgid "Наши крупнейшие клиенты"
+msgstr "Bizning eng katta mijozlarimiz"
+
+#: templates/index.html:484 templates/product-inner.html:303
+msgid "Наш адрес"
+msgstr "Bizning manzilimiz"
+
+#: templates/index.html:518 templates/product-inner.html:337
+msgid "Наш контакт"
+msgstr "Bizning aloqamiz"
+
+#: templates/index.html:533 templates/product-inner.html:352
+msgid "Все права защищены"
+msgstr "Barcha huquqlar himoyalangan"
+
+#: templates/index.html:536 templates/product-inner.html:355
+msgid "Сайт создан"
+msgstr "Sayt yaratildi"
+
+#: templates/product-inner.html:149
+msgid "Модель"
+msgstr "Model"
+
+#: templates/product-inner.html:157
+msgid "Назначение"
+msgstr "Uchrashuv"
+
+#: templates/product-inner.html:165
+msgid "Разрешенная нагрузка, кг"
+msgstr "Ruxsat etilgan yuk, kg"
+
+#: templates/product-inner.html:173
+msgid "Конструкция"
+msgstr "Dizayn"
+
+#: templates/product-inner.html:181
+msgid "Гарантия"
+msgstr "Kafolat"
+
+#: templates/product-inner.html:189
+msgid "Страна производства"
+msgstr "Ishlab chiqarilgan mamlakat"
+
+#: templates/product-inner.html:198
+msgid "Заказать"
+msgstr "Buyurtma"
+
+#: templates/product-inner.html:206
+msgid "Оставить заявку"
+msgstr "Arizani qoldiring"
+
+#: templates/product-inner.html:208
+msgid "Имя"
+msgstr "Ism"
+
+#: templates/product-inner.html:210
+msgid "Номер телефона"
+msgstr "Telefon raqami"
+
+#: templates/product-inner.html:214
+msgid "Отправить"
+msgstr "Yuborish"
+
+#: templates/product-inner.html:220
+msgid "Описание"
+msgstr "Tavsif"

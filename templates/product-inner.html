@@ -1,0 +1,393 @@
+{% load static %}
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Воздушные купола (купольные стадионы)</title>
+    <link rel="stylesheet" href="{% static 'plugin/aos/aos.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    <link rel="stylesheet" href="{% static 'plugin/swiper/swiper-bundle.min.css' %}"/>
+    <script src="{% static 'plugin/tailwind/tailwind.js' %}"></script>
+    <script src="{% static 'plugin/tailwind/tailwind.config.js' %}"></script>
+</head>
+<body>
+<nav id="navbar" class="py-2  bg-black duration-500 fixed top-0 w-full z-50 ">
+    <div class="container flex items-center justify-between font-gilroy font-medium">
+        <div class="flex justify-center items-center gap-3 sm:gap-6">
+            <a href="{% url 'index' %}" class="h-[35px] w-[50px] lg:w-[110px] lg:h-[40px]">
+                <img src="{% static 'image/logo-white.png' %}" alt="Logo" class="w-full h-full shrink-0 object-contain "
+                     id="logo">
+                <!-- <img src="./project/image/tilea-logo-dark.svg" alt="Logo" class="w-full h-full shrink-0 object-contain text-white" id="logo-white"> -->
+            </a>
+            <a href="{% url 'index' %}" class="h-[35px] w-[50px] lg:w-[110px] lg:h-[40px]">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                     id="Layer_1"
+                     x="0px" y="0px" viewBox="0 0 137 30" enable-background="new 0 0 137 30" xml:space="preserve"
+                     class="w-full h-full">
+            <g>
+              <g>
+                <g>
+                  <path fill="#FFFFFF" d="M18.337,8.053v21.474H8.694V8.053H0.422V0.474H26.61v7.579H18.337z"/>
+                </g>
+              </g>
+                <g>
+                <g>
+                  <path fill="#FFFFFF" d="M30.878,29.526V0.421h9.643v29.105H30.878L30.878,29.526z"/>
+                </g>
+              </g>
+                <g>
+                <g>
+                  <path fill="#FFFFFF" d="M68.342,21.526v8H46.58V0.421h9.643v21.105H68.342z"/>
+                </g>
+              </g>
+                <g>
+                <g>
+                  <path fill="#FFFFFF"
+                        d="M81.673,7.737v3.579H93.95v7.316H81.673v3.632h15.386v7.316H72.03V0.474h24.66v7.316H81.673V7.737z"/>
+                </g>
+              </g>
+                <g>
+                <g>
+                  <path fill="#FFFFFF"
+                        d="M110.812,0.421h9.643l12.225,29.105h-9.906l-7.114-16.632l-6.745,16.632H98.64L110.812,0.421z"/>
+                </g>
+              </g>
+                <g>
+                <path fill="#FFFFFF"
+                      d="M132.31,0.474c-2.371,0-4.268,2-4.268,4.316s1.844,4.263,4.268,4.263c2.424,0,4.321-2,4.321-4.316    S134.787,0.474,132.31,0.474z M132.31,8c-1.844,0-3.214-1.421-3.214-3.211s1.423-3.263,3.267-3.263s3.267,1.421,3.267,3.211    C135.63,6.526,134.207,8,132.31,8z"/>
+                    <path fill="#FFFFFF"
+                          d="M134.154,4.053c0-0.895-0.632-1.421-1.686-1.421h-1.739v4h1.001V5.526h0.79l0.58,1.105h1.159l-0.843-1.316    C133.891,5.105,134.154,4.632,134.154,4.053z M132.521,4.684h-0.738V3.421h0.738c0.422,0,0.685,0.211,0.685,0.632    C133.206,4.421,132.942,4.684,132.521,4.684z"/>
+              </g>
+            </g>
+          </svg>
+            </a>
+        </div>
+        <div class="flex items-center gap-x-2 mr-2 sm:mr-0">
+            <a href="tel:+998 93 511 66 18"
+               class="flex items-center text-sm gap-2.5 text-white  md:text-white rounded-xl px-2 py-1  lg:text-lg">
+                <i class="ri-phone-line text-xl mt-0.5 block md:hidden"></i>
+                <span class="hidden font-normal text-base md:block montserrat">+998 93 511 66 18</span>
+            </a>
+            <div class="relative">
+                <div class="flex items-center gap-2 cursor-pointer lang-btn">
+                    <div>
+                        <a href="{% url 'set-language' 'ru' %}"><img class="w-7 h-7 object-cover rounded-full"
+                                                                     src="{% static 'image/russian.png' %}"
+                                                                     alt="Russian flag"></a>
+                    </div>
+                    <div>
+                        <a href="{% url 'set-language' 'uz' %}"><img class="w-7 h-7 object-cover rounded-full"
+                                                                     src="{% static 'image/uzbekistan.png' %}"
+                                                                     alt="Uzbekistan flag"></a>
+                    </div>
+
+
+                </div>
+                <!--                            <div class="absolute top-[60px] right-2  grid grid-rows-[0fr] lang-menu w-12 sm:w-16  gap-2 duration-200 z-[5]">-->
+                <!--                                <div class="overflow-hidden ">-->
+                <!--                                    <div class="py-1 px-1 md:px-3 bg-[#0058E9] rounded  text-base flex flex-col w-full border-[0.5px] border-white/40">-->
+                <!--                                        <ul>-->
+                <!--                                            <li class="flex items-center gap-1">-->
+                <!--                                                <span class="w-4 h-3 shrink-0 rounded">-->
+                <!--                                                    <img class="w-full h-full object-cover" src="./project/image/russian.png" alt="Russian flag">-->
+                <!--                                                </span>-->
+                <!--                                                <a href="#" class="text-white duration-200 text-sm md:text-lg">RU</a>-->
+                <!--                                            </li>-->
+                <!--                                            <li class="flex items-center gap-1">-->
+                <!--                                                <span class="w-4 h-3 shrink-0 rounded">-->
+                <!--                                                    <img class="w-full h-full object-cover" src="./project/image/uzbekistan.png" alt="Uzbekistan flag">-->
+                <!--                                                </span>-->
+                <!--                                                <a href="#" class="text-white duration-200 text-sm md:text-lg">UZ</a>-->
+                <!--                                            </li>-->
+                <!--                                        </ul>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+            </div>
+        </div>
+    </div>
+    <!-- <div class="black-bg w-full h-screen hidden bg-black/50 absolute z-[25] top-0 left-0"></div> -->
+</nav>
+
+<main class="mt-20">
+    <div class="container">
+        <div class="grid grid-cols-1 gap-[68px] md:grid-cols-2">
+            <div class="w-full space-y-5">
+                <div class="aspect-video overlfow-hidden swiper mySwiper2">
+                    <div class="w-full h-full swiper-wrapper">
+                        {% for i in product.images.all %}
+                            <div class="swiper-slide rounded-[20px] w-full h-full overflow-hidden">
+                                <img src="{{ i.image.url }}"
+                                     class="object-cover object-top w-full h-full"/>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div thumbsSlider="" class="swiper mySwiper h-[10vh]">
+                    <div class="swiper-wrapper">
+                        {% for i in product.images.all %}
+                            <div class="swiper-slide w-[60px] rounded-[20px] overflow-hidden">
+                                <img src="{{ i.image.url }}"
+                                     class="object-cover object-top w-full h-full"/>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+            <div class="font-montserrat space-y-[30px] text-dark space-y-3 ">
+                <div class="text-xl md:text-3xl">
+                    <h1 class="font-medium" data-aos="fade-up">
+                        {{ product.name }}
+                    </h1>
+                </div>
+                <div class="space-y-3 text-sm md:text-lg" data-aos-delay="30" data-aos="fade-up">
+                    <p class="space-x-2">
+              <span class="font-meduim">
+                {% trans 'Модель' %}:
+              </span>
+                        <span class="font-light">
+                {{ product.model }}
+              </span>
+                    </p>
+                    <p class="space-x-2">
+              <span class="font-meduim">
+                {% trans 'Назначение' %}:
+              </span>
+                        <span class="font-light">
+                {{ product.appointment }}
+              </span>
+                    </p>
+                    <p class="space-x-2">
+              <span class="font-meduim">
+                {% trans 'Разрешенная нагрузка, кг' %}:
+              </span>
+                        <span class="font-light">
+                {{ product.permissible_load }}
+              </span>
+                    </p>
+                    <p class="space-x-2">
+              <span class="font-meduim">
+                {% trans 'Конструкция' %}:
+              </span>
+                        <span class="font-light">
+                {{ product.construction }}
+              </span>
+                    </p>
+                    <p class="space-x-2">
+              <span class="font-meduim">
+                {% trans 'Гарантия' %}:
+              </span>
+                        <span class="font-light">
+                {{ product.guarantee }}
+              </span>
+                    </p>
+                    <p class="space-x-2">
+              <span class="font-meduim">
+                {% trans 'Страна производства' %}:
+              </span>
+                        <span class="font-light">
+                {{ product.country }}
+              </span>
+                    </p>
+                </div>
+                <div class="flex gap-x-4">
+                    <a id="button" data-aos-delay="30" data-aos="fade-up" href="#" class=" btn-link-bg order"
+                       data-aos="fade-up">{% trans 'Заказать' %}</a>
+                </div>
+            </div>
+        </div>
+        <div id="modal"
+             class="scale-0 duration-300 w-screen h-screen bg-black/50 flex justify-center items-center fixed z-[9999] top-0 left-0">
+            <form action="." method="post" class="p-[50px_68px] bg-white rounded-lg flex flex-col gap-5">
+                {% csrf_token %}
+                <h2 class="font-play font-bold text-commonBlue text-xl md:text-[40px] ">{% trans 'Оставить заявку' %}</h2>
+                <input name="name" class="rounded-lg border-0 py-3 px-2 outline-none bg-black/5" type="text"
+                       placeholder="{% trans 'Имя' %}" required/>
+                <input name="phone" class="rounded-lg border-0 py-3 px-2 outline-none bg-black/5" type="text"
+                       placeholder="{% trans 'Номер телефона' %}" required/>
+                <div id="buttonForm" class="mt-[10px] flex justify-center w-full">
+                    <button type="submit" id="order-modal"
+                            class=" btn-link-bg order">
+                        {% trans 'Отправить' %}
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="space-y-3 w-full font-montserrat">
+            <h2 class="text-center font-bold text-xl md:text-3xl">{% trans 'Описание' %}</h2>
+            <div class="w-full">
+                {{ product.description|safe }}
+                <div class="flex justify-center items-center aspect-[10/4]">
+                    <iframe class="w-full h-[200px] xs:h-[250px] sm:h-[300px] md:h-[500px]"
+                            src="{{ product.youtube_link }}"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen=""></iframe>
+                </div>
+            </div>
+            <p></p>
+        </div>
+    </div>
+</main>
+<footer class="py-4 bg-black mt-5">
+    <div class="container">
+        <div
+                class=" flex flex-col xs:flex-row  justify-between gap-5   text-[#FFFFFF90] font-montserrat-alternates xs:gap-10">
+            <div class="max-xs:text-center">
+                <div class="pb-[10px]">
+                    <p class="text-lg pb-[10px] font-montserrat font-normal">{% trans 'Наш адрес' %}:</p>
+                    <span class="block text-sm font-montserrat font-thin">{{ main.address }}</span>
+                </div>
+                <div class="flex gap-5 w-fit max-xs:mx-auto">
+                    <a href="{{ main.facebook_link }}" target="_blank"
+                       class="flex items-center justify-center w-5 h-5 text-2xl text-[#FFFFFF90] py-4 px-4 bg-[#4A4A4A] rounded-full">
+                        <i class="ri-facebook-fill text-xl"></i>
+                    </a>
+                    <a href="{{ main.telegram_link }}" target="_blank"
+                       class="flex items-center justify-center w-5 h-5 fill-[#FFFFFF90] py-4 px-4 bg-[#4A4A4A] rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
+                             fill="none"
+                             class="w-[30px] h-[30px] flex-shrink-0">
+                            <path
+                                    d="M28 12.6022L24.9946 28.2923C24.9946 28.2923 24.5741 29.3801 23.4189 28.8584L16.4846 23.3526L16.4524 23.3364C17.3891 22.4654 24.6524 15.7027 24.9698 15.3961C25.4613 14.9214 25.1562 14.6387 24.5856 14.9974L13.8568 22.053L9.71764 20.6108C9.71764 20.6108 9.06626 20.3708 9.00359 19.8491C8.9401 19.3265 9.73908 19.0439 9.73908 19.0439L26.6131 12.1889C26.6131 12.1889 28 11.5579 28 12.6022Z"
+                                    fill="#FFFFFF90"/>
+                        </svg>
+                    </a>
+                    <a href="{{ main.youtube_link }}" target="_blank"
+                       class="flex items-center justify-center w-5 h-5 text-[#FFFFFF90] py-4 px-4 bg-[#4A4A4A] rounded-full">
+                        <i class="ri-youtube-fill text-xl"></i>
+                    </a>
+                    <a href="{{ main.whatsapp_link }}" target="_blank"
+                       class="flex items-center justify-center w-5 h-5 text-[#FFFFFF90] py-4 px-4 bg-[#4A4A4A] rounded-full">
+                        <i class="ri-whatsapp-fill text-xl"></i>
+                    </a>
+                    <a href="{{ main.instagram_link }}" target="_blank"
+                       class="flex items-center justify-center w-5 h-5 text-[#FFFFFF90] py-4 px-4 bg-[#4A4A4A] rounded-full">
+                        <i class="ri-instagram-line text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="flex flex-col gap-1 items-center">
+                <p class="text-lg pb-[10px] font-montserrat font-normal">
+                    <span class="">{% trans 'Наш контакт' %}:</span>
+                </p>
+                <div class="flex flex-row xs:flex-col gap-2.5 xs:gap-1 items-center justify-center">
+                    {% for i in phones %}
+                        <a href="tel:{{ i.phone }}"
+                           class="block text-sm font-montserrat font-thin">{{ i.phone }}</a>
+                    {% endfor %}
+                </div>
+                <a href="mailto:{{ main.email }}" class="block text-sm font-thin font-montserrat">
+                    {{ main.email }}</a>
+            </div>
+        </div>
+        <div
+                class="flex flex-col xs:flex-row items-center justify-between col-span-2 border-t mt-5 py-2 border-t-[#2E2E2E]">
+            <p class="text-[#767676] tex-center text-[13px] h-full">
+                ©2025 . {% trans 'Все права защищены' %}.
+            </p>
+            <div class="flex items-center gap-[9px] w-fit mx-auto md:mx-0 font-montserrat font-normal">
+                <p class="text-[#FFFFFF90] opacity-70 text-[13px]">{% trans 'Сайт создан' %}</p>
+                <a href="https://abduganiev.uz" target="_blank" class="w-6 h-6">
+                    <img class="object-contain w-full h-full" src="{% static 'image/abduganiev.png' %}"
+                         alt="abduganiev technology"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="{% static 'plugin/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'plugin/purecounter/purecounter_vanilla.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+<script src="{% static 'plugin/aos/aos.js' %}"></script>
+<script>
+    AOS.init();
+
+    let swiper = new Swiper(".mySwiper", {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+    });
+    let swiper2 = new Swiper(".mySwiper2", {
+        spaceBetween: 20,
+        thumbs: {
+            swiper: swiper,
+        },
+    });
+
+    const modalWrapper = document.querySelector('.modal-wrapper')
+    const modal = document.querySelector('.modal')
+    const order = document.querySelector('.order')
+    const close = document.querySelector('.close')
+
+    const closeModal = () => {
+        modalWrapper.classList.add('z-[-10]')
+        modalWrapper.classList.remove('z-10')
+        modal.classList.add('scale-0');
+        modal.classList.remove('scale-1');
+    }
+
+    order.addEventListener('click', (e) => {
+        e.stopPropagation()
+        modalWrapper.classList.remove('z-[-10]')
+        modalWrapper.classList.add('z-10')
+        modal.classList.remove('scale-0');
+        modal.classList.add('scale-1');
+    })
+
+    close.addEventListener('click', () => {
+        closeModal()
+
+    })
+    window.addEventListener('click', () => {
+        closeModal()
+    })
+    modal.addEventListener('click', (e) => {
+        e.stopPropagation()
+    })
+
+
+</script>
+<script>
+    let swiper3 = new Swiper(".mySwiper1", {
+
+        freeMode: true,
+        breakpoints: {
+            0: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+            },
+            600: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+            1200: {
+                slidesPerView: 4,
+                spaceBetween: 30,
+            },
+        },
+        autoplay: {
+            delay: 5000, // Set the delay in milliseconds (e.g., 5000 for 5 seconds)
+            disableOnInteraction: false, // Allow navigation while autoplay is active
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+</script>
+</body>
+
+</html>

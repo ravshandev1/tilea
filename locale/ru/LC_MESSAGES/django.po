@@ -1,0 +1,136 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-12 18:23+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+#: templates/index.html:269
+msgid "Наша продукция"
+msgstr "Наша продукция"
+
+#: templates/index.html:296
+msgid "Подробнее"
+msgstr "Подробнее"
+
+#: templates/index.html:311
+msgid "Наши особенности"
+msgstr "Наши особенности"
+
+#: templates/index.html:337
+msgid "Наши статистика"
+msgstr "Наши статистика"
+
+#: templates/index.html:356
+msgid "лет традиции"
+msgstr "лет традиции"
+
+#: templates/index.html:365
+msgid "страны"
+msgstr "страны"
+
+#: templates/index.html:374
+msgid "проекты"
+msgstr "проекты"
+
+#: templates/index.html:383
+msgid "клиенты"
+msgstr "клиенты"
+
+#: templates/index.html:393
+msgid "Почему стоит выбрать купола TILEA"
+msgstr "Почему стоит выбрать купола TILEA"
+
+#: templates/index.html:410
+msgid "Выбранные проекты"
+msgstr "Выбранные проекты"
+
+#: templates/index.html:428
+msgid "Адрес"
+msgstr "Адрес"
+
+#: templates/index.html:446
+msgid "Фотогалерея"
+msgstr "Фотогалерея"
+
+#: templates/index.html:464
+msgid "Наши крупнейшие клиенты"
+msgstr "Наши крупнейшие клиенты"
+
+#: templates/index.html:484 templates/product-inner.html:303
+msgid "Наш адрес"
+msgstr "Наш адрес"
+
+#: templates/index.html:518 templates/product-inner.html:337
+msgid "Наш контакт"
+msgstr "Наш контакт"
+
+#: templates/index.html:533 templates/product-inner.html:352
+msgid "Все права защищены"
+msgstr "Все права защищены"
+
+#: templates/index.html:536 templates/product-inner.html:355
+msgid "Сайт создан"
+msgstr "Сайт создан"
+
+#: templates/product-inner.html:149
+msgid "Модель"
+msgstr "Модель"
+
+#: templates/product-inner.html:157
+msgid "Назначение"
+msgstr "Назначение"
+
+#: templates/product-inner.html:165
+msgid "Разрешенная нагрузка, кг"
+msgstr "Разрешенная нагрузка, кг"
+
+#: templates/product-inner.html:173
+msgid "Конструкция"
+msgstr "Конструкция"
+
+#: templates/product-inner.html:181
+msgid "Гарантия"
+msgstr "Гарантия"
+
+#: templates/product-inner.html:189
+msgid "Страна производства"
+msgstr "Страна производства"
+
+#: templates/product-inner.html:198
+msgid "Заказать"
+msgstr "Заказать"
+
+#: templates/product-inner.html:206
+msgid "Оставить заявку"
+msgstr "Оставить заявку"
+
+#: templates/product-inner.html:208
+msgid "Имя"
+msgstr "Имя"
+
+#: templates/product-inner.html:210
+msgid "Номер телефона"
+msgstr "Номер телефона"
+
+#: templates/product-inner.html:214
+msgid "Отправить"
+msgstr "Отправить"
+
+#: templates/product-inner.html:220
+msgid "Описание"
+msgstr "Описание"
