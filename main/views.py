@@ -38,10 +38,11 @@ def index(request):
 
 
 def product_inner(request, pk):
-    product = Product.objects.filter(id=pk).prefetch_related('images').first()
+    product = Product.objects.filter(id=pk).prefetch_related('images', 'characters').first()
     main = Main.objects.first()
+    phones = Phone.objects.all()
     if request.method == 'POST':
         name = request.POST.get('name')
         phone = request.POST.get('phone')
         send_telegram_message(name, phone)
-    return render(request, 'product-inner.html', {'product': product, 'main': main})
+    return render(request, 'product-inner.html', {'product': product, 'main': main, 'phones': phones})

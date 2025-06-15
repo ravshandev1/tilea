@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .translations import CustomAdmin
-from .models import About, Client, Gallery, Carousel, Project, Client, Why, Product, Feature, Image, \
-    Phone, Main
+from .translations import CustomAdmin, StackedAdmin
+from .models import About, Client, Gallery, Carousel, Project, Client, Why, Product, Feature, Image, Phone, Main, \
+    Character
 
 
 @admin.register(Project)
@@ -49,6 +49,11 @@ class ImageInline(admin.StackedInline):
         return 4  # Maksimal 4 ta ruxsat beriladi
 
 
+class CharacterInline(StackedAdmin):
+    model = Character
+    extra = 1
+
+
 @admin.register(Phone)
 class PhoneAdmin(admin.ModelAdmin):
     list_display = ['phone']
@@ -76,7 +81,7 @@ class GalleryAdmin(CustomAdmin):
 @admin.register(Product)
 class ProductAdmin(CustomAdmin):
     list_display = ('name', 'display_image', 'model')
-    inlines = [ImageInline]
+    inlines = [ImageInline, CharacterInline]
 
     @staticmethod
     def display_image(obj):

@@ -5,7 +5,14 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Воздушные купола (купольные стадионы)</title>
+    <meta name="description"
+          content="TILEA® предлагает высококачественные воздушные купола для спортивных полей. Полный цикл работ от проектирования до строительства.">
+    <meta property="og:title" content="Воздушные купола TILEA®"/>
+    <meta property="og:description"
+          content="TILEA® предлагает высококачественные воздушные купола для спортивных полей."/>
+    <meta property="og:image" content="{% static 'image/logo-white.png' %}"/>
+    <meta property="og:url" content="https://engorussia.ru/catalog/vozdushnye-kupola/"/>
+    <title>Воздушные купола (купольные стадионы) - TILEA® | Высокое качество и инновационные технологии</title>
     <link rel="stylesheet" href="{% static 'plugin/aos/aos.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
     <link rel="stylesheet" href="{% static 'plugin/swiper/swiper-bundle.min.css' %}"/>
@@ -19,7 +26,6 @@
             <a href="{% url 'index' %}" class="h-[35px] w-[50px] lg:w-[110px] lg:h-[40px]">
                 <img src="{% static 'image/logo-white.png' %}" alt="Logo" class="w-full h-full shrink-0 object-contain "
                      id="logo">
-                <!-- <img src="./project/image/tilea-logo-dark.svg" alt="Logo" class="w-full h-full shrink-0 object-contain text-white" id="logo-white"> -->
             </a>
             <a href="{% url 'index' %}" class="h-[35px] w-[50px] lg:w-[110px] lg:h-[40px]">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
@@ -65,10 +71,10 @@
             </a>
         </div>
         <div class="flex items-center gap-x-2 mr-2 sm:mr-0">
-            <a href="tel:+998 93 511 66 18"
+            <a href="tel:phones.first.phone"
                class="flex items-center text-sm gap-2.5 text-white  md:text-white rounded-xl px-2 py-1  lg:text-lg">
                 <i class="ri-phone-line text-xl mt-0.5 block md:hidden"></i>
-                <span class="hidden font-normal text-base md:block montserrat">+998 93 511 66 18</span>
+                <span class="hidden font-normal text-base md:block montserrat">{{ phones.first.phone }}</span>
             </a>
             <div class="relative">
                 <div class="flex items-center gap-2 cursor-pointer lang-btn">
@@ -85,34 +91,13 @@
 
 
                 </div>
-                <!--                            <div class="absolute top-[60px] right-2  grid grid-rows-[0fr] lang-menu w-12 sm:w-16  gap-2 duration-200 z-[5]">-->
-                <!--                                <div class="overflow-hidden ">-->
-                <!--                                    <div class="py-1 px-1 md:px-3 bg-[#0058E9] rounded  text-base flex flex-col w-full border-[0.5px] border-white/40">-->
-                <!--                                        <ul>-->
-                <!--                                            <li class="flex items-center gap-1">-->
-                <!--                                                <span class="w-4 h-3 shrink-0 rounded">-->
-                <!--                                                    <img class="w-full h-full object-cover" src="./project/image/russian.png" alt="Russian flag">-->
-                <!--                                                </span>-->
-                <!--                                                <a href="#" class="text-white duration-200 text-sm md:text-lg">RU</a>-->
-                <!--                                            </li>-->
-                <!--                                            <li class="flex items-center gap-1">-->
-                <!--                                                <span class="w-4 h-3 shrink-0 rounded">-->
-                <!--                                                    <img class="w-full h-full object-cover" src="./project/image/uzbekistan.png" alt="Uzbekistan flag">-->
-                <!--                                                </span>-->
-                <!--                                                <a href="#" class="text-white duration-200 text-sm md:text-lg">UZ</a>-->
-                <!--                                            </li>-->
-                <!--                                        </ul>-->
-                <!--                                    </div>-->
-                <!--                                </div>-->
-                <!--                            </div>-->
             </div>
         </div>
     </div>
-    <!-- <div class="black-bg w-full h-screen hidden bg-black/50 absolute z-[25] top-0 left-0"></div> -->
 </nav>
 
-<main class="mt-20">
-    <div class="container">
+<main class="mt-16 md:mt-[60px] lg:mt-20">
+    <div class="container pt-5 md:pt-7">
         <div class="grid grid-cols-1 gap-[68px] md:grid-cols-2">
             <div class="w-full space-y-5">
                 <div class="aspect-video overlfow-hidden swiper mySwiper2">
@@ -135,7 +120,6 @@
                         {% endfor %}
                     </div>
                 </div>
-
             </div>
             <div class="font-montserrat space-y-[30px] text-dark space-y-3 ">
                 <div class="text-xl md:text-3xl">
@@ -144,57 +128,15 @@
                     </h1>
                 </div>
                 <div class="space-y-3 text-sm md:text-lg" data-aos-delay="30" data-aos="fade-up">
-                    <p class="space-x-2">
-              <span class="font-meduim">
-                {% trans 'Модель' %}:
-              </span>
-                        <span class="font-light">
-                {{ product.model }}
-              </span>
-                    </p>
-                    <p class="space-x-2">
-              <span class="font-meduim">
-                {% trans 'Назначение' %}:
-              </span>
-                        <span class="font-light">
-                {{ product.appointment }}
-              </span>
-                    </p>
-                    <p class="space-x-2">
-              <span class="font-meduim">
-                {% trans 'Разрешенная нагрузка, кг' %}:
-              </span>
-                        <span class="font-light">
-                {{ product.permissible_load }}
-              </span>
-                    </p>
-                    <p class="space-x-2">
-              <span class="font-meduim">
-                {% trans 'Конструкция' %}:
-              </span>
-                        <span class="font-light">
-                {{ product.construction }}
-              </span>
-                    </p>
-                    <p class="space-x-2">
-              <span class="font-meduim">
-                {% trans 'Гарантия' %}:
-              </span>
-                        <span class="font-light">
-                {{ product.guarantee }}
-              </span>
-                    </p>
-                    <p class="space-x-2">
-              <span class="font-meduim">
-                {% trans 'Страна производства' %}:
-              </span>
-                        <span class="font-light">
-                {{ product.country }}
-              </span>
-                    </p>
+                    {% for i in product.characters.all %}
+                        <p class="space-x-2">
+                            <span class="font-meduim">{{ i.key }}:</span>
+                            <span class="font-light">{{ i.value }}</span>
+                        </p>
+                    {% endfor %}
                 </div>
                 <div class="flex gap-x-4">
-                    <a id="button" data-aos-delay="30" data-aos="fade-up" href="#" class=" btn-link-bg order"
+                    <a id="button" data-aos-delay="30" data-aos="fade-up" href="#" class="text-white rounded-full px-5 py-3 md:px-8 md:py-4 bg-blue-600 duration-700 transition-colors hover:bg-white hover:text-blue-600 hover:border hover:border-2"
                        data-aos="fade-up">{% trans 'Заказать' %}</a>
                 </div>
             </div>
@@ -210,17 +152,17 @@
                        placeholder="{% trans 'Номер телефона' %}" required/>
                 <div id="buttonForm" class="mt-[10px] flex justify-center w-full">
                     <button type="submit" id="order-modal"
-                            class=" btn-link-bg order">
+                            class="text-white rounded-full px-5 py-3 md:px-8 md:py-4 bg-blue-600 duration-700 transition-colors hover:bg-white hover:text-blue-600 hover:border hover:border-2">
                         {% trans 'Отправить' %}
                     </button>
                 </div>
             </form>
         </div>
-        <div class="space-y-3 w-full font-montserrat">
+        <div class="space-y-3 w-full font-montserrat mt-10 md:mt-16">
             <h2 class="text-center font-bold text-xl md:text-3xl">{% trans 'Описание' %}</h2>
             <div class="w-full">
                 {{ product.description|safe }}
-                <div class="flex justify-center items-center aspect-[10/4]">
+                <div class="flex justify-center items-center aspect-[10/4] py-[40px] md:py-[50px]">
                     <iframe class="w-full h-[200px] xs:h-[250px] sm:h-[300px] md:h-[500px]"
                             src="{{ product.youtube_link }}"
                             title="YouTube video player" frameborder="0"
@@ -228,14 +170,12 @@
                             allowfullscreen=""></iframe>
                 </div>
             </div>
-            <p></p>
         </div>
     </div>
 </main>
 <footer class="py-4 bg-black mt-5">
     <div class="container">
-        <div
-                class=" flex flex-col xs:flex-row  justify-between gap-5   text-[#FFFFFF90] font-montserrat-alternates xs:gap-10">
+        <div class=" flex flex-col xs:flex-row  justify-between gap-5   text-[#FFFFFF90] font-montserrat-alternates xs:gap-10">
             <div class="max-xs:text-center">
                 <div class="pb-[10px]">
                     <p class="text-lg pb-[10px] font-montserrat font-normal">{% trans 'Наш адрес' %}:</p>
@@ -284,8 +224,7 @@
                     {{ main.email }}</a>
             </div>
         </div>
-        <div
-                class="flex flex-col xs:flex-row items-center justify-between col-span-2 border-t mt-5 py-2 border-t-[#2E2E2E]">
+        <div class="flex flex-col xs:flex-row items-center justify-between col-span-2 border-t mt-5 py-2 border-t-[#2E2E2E]">
             <p class="text-[#767676] tex-center text-[13px] h-full">
                 ©2025 . {% trans 'Все права защищены' %}.
             </p>

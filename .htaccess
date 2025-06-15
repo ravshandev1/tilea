@@ -1,0 +1,6 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/engogra1/tilea.uz"
+PassengerBaseURI "/"
+PassengerPython "/home/engogra1/virtualenv/tilea.uz/3.11/bin/python"
+PassengerAppLogFile "/home/engogra1/applog/tilea.log"
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
