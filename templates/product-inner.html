@@ -119,6 +119,8 @@
                             </div>
                         {% endfor %}
                     </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
             </div>
             <div class="font-montserrat space-y-[30px] text-dark space-y-3 ">
@@ -136,7 +138,8 @@
                     {% endfor %}
                 </div>
                 <div class="flex gap-x-4">
-                    <a id="button" data-aos-delay="30" data-aos="fade-up" href="#" class="text-white rounded-full px-5 py-3 md:px-8 md:py-4 bg-blue-600 duration-700 transition-colors hover:bg-white hover:text-blue-600 hover:border hover:border-2"
+                    <a id="button" data-aos-delay="30" data-aos="fade-up" href="#"
+                       class="text-white rounded-full px-5 py-3 md:px-8 md:py-4 bg-blue-600 duration-700 transition-colors hover:bg-white hover:text-blue-600 hover:border hover:border-2"
                        data-aos="fade-up">{% trans 'Заказать' %}</a>
                 </div>
             </div>
@@ -250,6 +253,10 @@
         slidesPerView: 4,
         freeMode: true,
         watchSlidesProgress: true,
+        navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
     });
     let swiper2 = new Swiper(".mySwiper2", {
         spaceBetween: 20,
@@ -290,42 +297,6 @@
     })
 
 
-</script>
-<script>
-    let swiper3 = new Swiper(".mySwiper1", {
-
-        freeMode: true,
-        breakpoints: {
-            0: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            600: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-            },
-            1200: {
-                slidesPerView: 4,
-                spaceBetween: 30,
-            },
-        },
-        autoplay: {
-            delay: 5000, // Set the delay in milliseconds (e.g., 5000 for 5 seconds)
-            disableOnInteraction: false, // Allow navigation while autoplay is active
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-    });
 </script>
 </body>
 
